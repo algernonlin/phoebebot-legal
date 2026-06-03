@@ -1,0 +1,557 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>菲比團子 — 法律資訊</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@300;400;500&family=Noto+Sans+TC:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --cream: #fdf6ee;
+    --parchment: #f5e9d6;
+    --gold: #c9a96e;
+    --gold-light: #e8d5a3;
+    --gold-dark: #8a6d3b;
+    --ink: #2c1f0e;
+    --ink-mid: #5a4020;
+    --ink-light: #9a7a50;
+    --accent: #d4896a;
+    --accent-light: #f0c9b5;
+    --white: #fffdf8;
+  }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    background-color: var(--cream);
+    color: var(--ink);
+    font-family: 'Noto Sans TC', sans-serif;
+    font-weight: 300;
+    line-height: 1.9;
+    min-height: 100vh;
+    background-image:
+      radial-gradient(ellipse at 20% 0%, rgba(201,169,110,0.12) 0%, transparent 50%),
+      radial-gradient(ellipse at 80% 100%, rgba(212,137,106,0.10) 0%, transparent 50%);
+  }
+
+  /* ── Decorative border frame ── */
+  body::before {
+    content: '';
+    position: fixed;
+    inset: 12px;
+    border: 1px solid rgba(201,169,110,0.25);
+    pointer-events: none;
+    z-index: 100;
+  }
+
+  /* ── Header ── */
+  header {
+    text-align: center;
+    padding: 5rem 2rem 3rem;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .header-ornament {
+    display: block;
+    margin: 0 auto 1.5rem;
+    opacity: 0.6;
+  }
+
+  .site-title {
+    font-family: 'Noto Serif TC', serif;
+    font-size: clamp(2rem, 5vw, 3.2rem);
+    font-weight: 300;
+    letter-spacing: 0.15em;
+    color: var(--ink);
+    margin-bottom: 0.4rem;
+  }
+
+  .site-subtitle {
+    font-size: 0.8rem;
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+    color: var(--ink-light);
+    margin-bottom: 2rem;
+  }
+
+  .divider {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    max-width: 340px;
+    margin: 0 auto;
+  }
+  .divider-line {
+    flex: 1;
+    height: 1px;
+    background: linear-gradient(to right, transparent, var(--gold), transparent);
+  }
+  .divider-diamond {
+    width: 6px; height: 6px;
+    background: var(--gold);
+    transform: rotate(45deg);
+    flex-shrink: 0;
+  }
+
+  /* ── Nav ── */
+  nav {
+    display: flex;
+    justify-content: center;
+    gap: 0.5rem;
+    padding: 2rem 1rem;
+    position: sticky;
+    top: 0;
+    background: rgba(253,246,238,0.92);
+    backdrop-filter: blur(8px);
+    z-index: 50;
+    border-bottom: 1px solid rgba(201,169,110,0.2);
+  }
+
+  nav a {
+    font-size: 0.78rem;
+    letter-spacing: 0.18em;
+    text-decoration: none;
+    color: var(--ink-mid);
+    padding: 0.45rem 1.2rem;
+    border: 1px solid transparent;
+    border-radius: 2px;
+    transition: all 0.25s ease;
+  }
+  nav a:hover {
+    border-color: var(--gold);
+    color: var(--gold-dark);
+    background: rgba(201,169,110,0.06);
+  }
+  nav a.active {
+    border-color: var(--gold);
+    color: var(--gold-dark);
+    background: rgba(201,169,110,0.1);
+  }
+
+  /* ── Main content ── */
+  main {
+    max-width: 780px;
+    margin: 0 auto;
+    padding: 4rem 2rem 6rem;
+  }
+
+  section {
+    margin-bottom: 5rem;
+    opacity: 0;
+    transform: translateY(18px);
+    animation: fadeUp 0.7s ease forwards;
+  }
+  section:nth-child(1) { animation-delay: 0.1s; }
+  section:nth-child(2) { animation-delay: 0.25s; }
+
+  @keyframes fadeUp {
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  .section-eyebrow {
+    font-size: 0.7rem;
+    letter-spacing: 0.35em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 0.6rem;
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+  }
+  .section-eyebrow::after {
+    content: '';
+    flex: 1;
+    height: 1px;
+    background: linear-gradient(to right, var(--gold-light), transparent);
+    max-width: 200px;
+  }
+
+  h2 {
+    font-family: 'Noto Serif TC', serif;
+    font-size: clamp(1.4rem, 3vw, 1.9rem);
+    font-weight: 300;
+    letter-spacing: 0.08em;
+    color: var(--ink);
+    margin-bottom: 2rem;
+  }
+
+  h3 {
+    font-family: 'Noto Serif TC', serif;
+    font-size: 1rem;
+    font-weight: 500;
+    letter-spacing: 0.06em;
+    color: var(--ink-mid);
+    margin: 2rem 0 0.75rem;
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+  }
+  h3::before {
+    content: '';
+    width: 16px; height: 1px;
+    background: var(--gold);
+    flex-shrink: 0;
+  }
+
+  p {
+    font-size: 0.92rem;
+    color: var(--ink-mid);
+    margin-bottom: 1rem;
+    line-height: 1.95;
+  }
+
+  .card {
+    background: var(--white);
+    border: 1px solid rgba(201,169,110,0.22);
+    border-radius: 4px;
+    padding: 2rem 2.5rem;
+    position: relative;
+    margin-bottom: 2rem;
+  }
+  .card::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0;
+    width: 3px; height: 100%;
+    background: linear-gradient(to bottom, var(--gold), var(--accent));
+    border-radius: 4px 0 0 4px;
+  }
+
+  .update-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    font-size: 0.72rem;
+    letter-spacing: 0.12em;
+    color: var(--ink-light);
+    background: rgba(201,169,110,0.1);
+    border: 1px solid rgba(201,169,110,0.25);
+    padding: 0.3rem 0.8rem;
+    border-radius: 2px;
+    margin-bottom: 2.5rem;
+  }
+
+  .info-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1px;
+    background: rgba(201,169,110,0.15);
+    border: 1px solid rgba(201,169,110,0.2);
+    border-radius: 4px;
+    overflow: hidden;
+    margin: 1.5rem 0;
+  }
+  .info-cell {
+    background: var(--white);
+    padding: 1.2rem 1.5rem;
+  }
+  .info-label {
+    font-size: 0.68rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--ink-light);
+    margin-bottom: 0.3rem;
+  }
+  .info-value {
+    font-size: 0.88rem;
+    color: var(--ink);
+    font-weight: 500;
+  }
+
+  .highlight-box {
+    background: linear-gradient(135deg, rgba(212,137,106,0.07), rgba(201,169,110,0.07));
+    border: 1px solid rgba(212,137,106,0.2);
+    border-radius: 4px;
+    padding: 1.2rem 1.5rem;
+    margin: 1.5rem 0;
+    font-size: 0.88rem;
+    color: var(--ink-mid);
+  }
+  .highlight-box strong {
+    color: var(--gold-dark);
+    font-weight: 500;
+  }
+
+  /* ── Footer ── */
+  footer {
+    text-align: center;
+    padding: 3rem 2rem 5rem;
+    border-top: 1px solid rgba(201,169,110,0.15);
+  }
+
+  .footer-logo {
+    font-family: 'Noto Serif TC', serif;
+    font-size: 1.2rem;
+    font-weight: 300;
+    letter-spacing: 0.2em;
+    color: var(--ink-light);
+    margin-bottom: 1rem;
+  }
+
+  .footer-links {
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+    margin-bottom: 1.5rem;
+  }
+  .footer-links a {
+    font-size: 0.75rem;
+    letter-spacing: 0.15em;
+    color: var(--ink-light);
+    text-decoration: none;
+    transition: color 0.2s;
+  }
+  .footer-links a:hover { color: var(--gold-dark); }
+
+  .footer-note {
+    font-size: 0.72rem;
+    color: var(--ink-light);
+    opacity: 0.7;
+    line-height: 1.7;
+  }
+
+  /* ── Corner ornaments ── */
+  .corner-ornament {
+    position: fixed;
+    width: 40px; height: 40px;
+    opacity: 0.25;
+    pointer-events: none;
+    z-index: 99;
+  }
+  .corner-ornament svg { width: 100%; height: 100%; }
+  .corner-tl { top: 20px; left: 20px; }
+  .corner-tr { top: 20px; right: 20px; transform: scaleX(-1); }
+  .corner-bl { bottom: 20px; left: 20px; transform: scaleY(-1); }
+  .corner-br { bottom: 20px; right: 20px; transform: scale(-1,-1); }
+
+  @media (max-width: 600px) {
+    body::before { inset: 6px; }
+    .corner-ornament { display: none; }
+    main { padding: 2.5rem 1.25rem 4rem; }
+    .card { padding: 1.5rem 1.25rem; }
+  }
+</style>
+</head>
+<body>
+
+<!-- Corner ornaments -->
+<div class="corner-ornament corner-tl">
+  <svg viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <path d="M2 2 L18 2 M2 2 L2 18" stroke="#c9a96e" stroke-width="1.5"/>
+    <path d="M2 2 L12 12" stroke="#c9a96e" stroke-width="0.8" opacity="0.5"/>
+    <circle cx="2" cy="2" r="2" fill="#c9a96e"/>
+  </svg>
+</div>
+<div class="corner-ornament corner-tr">
+  <svg viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <path d="M2 2 L18 2 M2 2 L2 18" stroke="#c9a96e" stroke-width="1.5"/>
+    <path d="M2 2 L12 12" stroke="#c9a96e" stroke-width="0.8" opacity="0.5"/>
+    <circle cx="2" cy="2" r="2" fill="#c9a96e"/>
+  </svg>
+</div>
+<div class="corner-ornament corner-bl">
+  <svg viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <path d="M2 2 L18 2 M2 2 L2 18" stroke="#c9a96e" stroke-width="1.5"/>
+    <path d="M2 2 L12 12" stroke="#c9a96e" stroke-width="0.8" opacity="0.5"/>
+    <circle cx="2" cy="2" r="2" fill="#c9a96e"/>
+  </svg>
+</div>
+<div class="corner-ornament corner-br">
+  <svg viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <path d="M2 2 L18 2 M2 2 L2 18" stroke="#c9a96e" stroke-width="1.5"/>
+    <path d="M2 2 L12 12" stroke="#c9a96e" stroke-width="0.8" opacity="0.5"/>
+    <circle cx="2" cy="2" r="2" fill="#c9a96e"/>
+  </svg>
+</div>
+
+<!-- Header -->
+<header>
+  <svg class="header-ornament" width="120" height="24" viewBox="0 0 120 24" fill="none">
+    <line x1="0" y1="12" x2="46" y2="12" stroke="#c9a96e" stroke-width="0.8" opacity="0.6"/>
+    <polygon points="52,12 57,7 62,12 57,17" fill="none" stroke="#c9a96e" stroke-width="0.8"/>
+    <circle cx="60" cy="12" r="2" fill="#c9a96e" opacity="0.8"/>
+    <polygon points="58,12 63,7 68,12 63,17" fill="none" stroke="#c9a96e" stroke-width="0.8" opacity="0.5"/>
+    <line x1="74" y1="12" x2="120" y2="12" stroke="#c9a96e" stroke-width="0.8" opacity="0.6"/>
+  </svg>
+  <h1 class="site-title">菲比團子</h1>
+  <p class="site-subtitle">Phoebe Bot &nbsp;·&nbsp; 法律資訊</p>
+  <div class="divider">
+    <div class="divider-line"></div>
+    <div class="divider-diamond"></div>
+    <div class="divider-line"></div>
+  </div>
+</header>
+
+<!-- Nav -->
+<nav id="nav">
+  <a href="#terms" onclick="setActive(this)">服務條款</a>
+  <a href="#privacy" onclick="setActive(this)">隱私權政策</a>
+</nav>
+
+<!-- Main -->
+<main>
+
+  <!-- Terms of Service -->
+  <section id="terms">
+    <div class="section-eyebrow">Terms of Service</div>
+    <h2>服務條款</h2>
+
+    <div class="update-badge">
+      <svg width="10" height="10" viewBox="0 0 10 10" fill="none">
+        <circle cx="5" cy="5" r="4" stroke="#c9a96e" stroke-width="0.8"/>
+        <path d="M5 3v2.5l1.5 1" stroke="#c9a96e" stroke-width="0.8" stroke-linecap="round"/>
+      </svg>
+      最後更新：2025 年 6 月
+    </div>
+
+    <div class="info-grid">
+      <div class="info-cell">
+        <div class="info-label">適用對象</div>
+        <div class="info-value">所有使用者</div>
+      </div>
+      <div class="info-cell">
+        <div class="info-label">服務名稱</div>
+        <div class="info-value">菲比團子 Bot</div>
+      </div>
+      <div class="info-cell">
+        <div class="info-label">平台</div>
+        <div class="info-value">Discord</div>
+      </div>
+    </div>
+
+    <div class="card">
+      <h3>歡迎使用菲比團子</h3>
+      <p>菲比團子（以下簡稱「本機器人」）是一個基於 Discord 平台的非官方粉絲創作工具，靈感來自遊戲《鳴潮》角色菲比（Phoebe）。使用本機器人即表示您同意以下服務條款。</p>
+    </div>
+
+    <h3>使用資格</h3>
+    <p>您必須遵守 Discord 的服務條款與使用指南，方可使用本機器人。使用本服務即代表您同意相關規定，並承擔因違規使用所產生的一切責任。</p>
+
+    <h3>服務範圍</h3>
+    <p>本機器人為免費的非商業個人專案，提供以下服務：</p>
+    <div class="card">
+      <p style="margin-bottom:0.5rem;">・基於《鳴潮》主題的互動功能</p>
+      <p style="margin-bottom:0.5rem;">・伺服器娛樂與管理輔助工具</p>
+      <p style="margin-bottom:0;">其他Discord相關互動功能</p>
+    </div>
+
+    <h3>免責聲明</h3>
+    <p>本機器人為愛好者自製作品，與庫洛游戲（KURO GAMES）及《鳴潮》官方並無任何關聯。本服務以「現狀」提供，不保證持續可用性。開發者保留隨時修改、暫停或終止服務的權利，恕不另行通知。</p>
+
+    <div class="highlight-box">
+      <strong>第三方服務</strong><br>
+      本機器人使用 Anthropic Claude AI 作為部分功能的技術基礎。使用本服務即表示您同時受 Anthropic 之
+      <a href="https://www.anthropic.com/legal/consumer-terms" style="color: var(--gold-dark); text-decoration: none; border-bottom: 1px solid rgba(138,109,59,0.3);">服務條款</a>
+      約束。
+    </div>
+
+    <h3>禁止行為</h3>
+    <p>使用者不得以任何方式濫用本服務，包括但不限於：惡意刷量、傳播不當內容、嘗試破解或干擾機器人運作，或用於任何違法用途。</p>
+
+    <h3>條款變更</h3>
+    <p>開發者保留隨時更新本條款的權利。重大變更將於 Discord 伺服器公告。繼續使用本服務視同接受最新條款。</p>
+  </section>
+
+  <!-- Privacy Policy -->
+  <section id="privacy">
+    <div class="section-eyebrow">Privacy Policy</div>
+    <h2>隱私權政策</h2>
+
+    <div class="update-badge">
+      <svg width="10" height="10" viewBox="0 0 10 10" fill="none">
+        <circle cx="5" cy="5" r="4" stroke="#c9a96e" stroke-width="0.8"/>
+        <path d="M5 3v2.5l1.5 1" stroke="#c9a96e" stroke-width="0.8" stroke-linecap="round"/>
+      </svg>
+      最後更新：2025 年 6 月
+    </div>
+
+    <div class="card">
+      <h3>我們重視您的隱私</h3>
+      <p>菲比團子盡量以最少的資料完成服務。本政策說明我們如何處理與您互動時所產生的資訊。</p>
+    </div>
+
+    <h3>收集的資訊</h3>
+    <p>當您使用本機器人時，系統可能接觸以下資訊：</p>
+    <div class="info-grid">
+      <div class="info-cell">
+        <div class="info-label">Discord 使用者 ID</div>
+        <div class="info-value">用於識別互動來源</div>
+      </div>
+      <div class="info-cell">
+        <div class="info-label">訊息內容</div>
+        <div class="info-value">僅限指令處理期間</div>
+      </div>
+      <div class="info-cell">
+        <div class="info-label">伺服器 ID</div>
+        <div class="info-value">提供伺服器功能所需</div>
+      </div>
+    </div>
+
+    <h3>資料使用方式</h3>
+    <p>所收集的資訊僅用於：</p>
+    <div class="card">
+      <p style="margin-bottom:0.5rem;">・處理您的指令與請求</p>
+      <p style="margin-bottom:0.5rem;">・維持服務的正常運作</p>
+      <p style="margin-bottom:0;">・改善機器人功能體驗</p>
+    </div>
+
+    <h3>資料儲存與安全</h3>
+    <p>本機器人不會長期儲存個人對話內容。互動資料僅在處理請求時暫時存在，處理完畢後即不保留。我們不會將您的個人資料販售、出租或提供給任何第三方。</p>
+
+    <h3>第三方服務</h3>
+    <div class="highlight-box">
+      <strong>Anthropic Claude AI</strong><br>
+      本機器人部分功能由 Anthropic 的 Claude AI 驅動。您的訊息內容可能會被傳送至 Anthropic 的伺服器以產生回應。相關資料處理規則請參閱
+      <a href="https://www.anthropic.com/legal/privacy" style="color: var(--gold-dark); text-decoration: none; border-bottom: 1px solid rgba(138,109,59,0.3);">Anthropic 隱私權政策</a>。
+    </div>
+
+    <h3>您的權利</h3>
+    <p>您有權要求刪除與您相關的任何資料。如有任何隱私問題，歡迎透過 GitHub 專案頁面聯絡開發者。</p>
+
+    <h3>政策更新</h3>
+    <p>本隱私權政策可能隨時修訂，修訂後的版本將發布於本頁面，並更新「最後更新」日期。</p>
+  </section>
+
+</main>
+
+<!-- Footer -->
+<footer>
+  <div class="footer-logo">菲比團子</div>
+  <div class="footer-links">
+    <a href="#terms">服務條款</a>
+    <a href="#privacy">隱私權政策</a>
+    <a href="https://github.com/tony3071/phoebebot" target="_blank">GitHub</a>
+  </div>
+  <p class="footer-note">
+    菲比團子為非官方粉絲創作，與庫洛游戲及《鳴潮》官方無關。<br>
+    Phoebe and Wuthering Waves are trademarks of KURO GAMES.
+  </p>
+</footer>
+
+<script>
+  function setActive(el) {
+    document.querySelectorAll('nav a').forEach(a => a.classList.remove('active'));
+    el.classList.add('active');
+  }
+
+  const sections = document.querySelectorAll('section[id]');
+  const navLinks = document.querySelectorAll('nav a');
+
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        navLinks.forEach(a => {
+          a.classList.toggle('active', a.getAttribute('href') === '#' + entry.target.id);
+        });
+      }
+    });
+  }, { rootMargin: '-40% 0px -50% 0px' });
+
+  sections.forEach(s => observer.observe(s));
+</script>
+</body>
+</html>
